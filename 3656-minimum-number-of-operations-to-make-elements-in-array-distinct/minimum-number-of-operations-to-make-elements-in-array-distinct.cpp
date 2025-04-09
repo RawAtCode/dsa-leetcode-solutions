@@ -1,31 +1,17 @@
 class Solution {
 public:
     int minimumOperations(vector<int>& nums) {
-        int count = 0;
-
-        while (true) {
-            unordered_set<int> st;
-            bool hasDuplicate = false;
-
-            //duplicates dhundo
-            for (int num : nums) {
-                if (st.count(num)) {
-                    hasDuplicate = true;
-                    break;
-                }
-                st.insert(num);
+        int n = nums.size();
+        unordered_set<int> st;
+        
+        for(int i=n-1; i>=0; i--){
+            if(st.count(nums[i])){
+                return ceil((i+1)/3.0);
             }
 
-            //koi duplicate nhi ya array empty ho gya
-            if (!hasDuplicate || nums.empty())
-                break;
-
-            //pehle 3 elements hata do
-            int removeCount = min(3, (int)nums.size());
-            nums.erase(nums.begin(), nums.begin() + removeCount);
-            count++;
+            st.insert(nums[i]);
         }
 
-        return count;
+        return 0;
     }
 };
