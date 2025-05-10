@@ -1,8 +1,6 @@
 class Solution {
 public:
     long long minSum(vector<int>& nums1, vector<int>& nums2) {
-        int m = nums1.size();
-        int n = nums1.size();
         int zeros1 = 0;
         int zeros2 = 0;
         long long sum1 = 0;
